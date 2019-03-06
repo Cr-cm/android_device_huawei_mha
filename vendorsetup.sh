@@ -1,1 +1,1 @@
-add_lunch_combo rr_mha-userdebug
+add_lunch_combo aosp_mha-userdebug

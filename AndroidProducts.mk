@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rr_mha.mk
+    $(LOCAL_DIR)/aosp_mha.mk

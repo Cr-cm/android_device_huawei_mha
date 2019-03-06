@@ -22,17 +22,27 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/huawei/mha/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/rr/config/common_full_phone.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Inherit gapps
-#$(call inherit-product, vendor/gapps/device-vendor.mk)
-$(call inherit-product, device/huawei/mha/gapps.mk)
+TARGET_GAPPS_ARCH := arm64
+TARGET_BOOT_ANIMATION_RES := 1080
+#TARGET_INCLUDE_STOCK_ARCORE := true
+
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := false
 
 $(call inherit-product, device/huawei/mha/hwcamera.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mha
-PRODUCT_NAME := rr_mha
+PRODUCT_NAME := aosp_mha
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := Huawei Mate 9
 PRODUCT_MANUFACTURER := Huawei
+
+PRODUCT_GMS_CLIENTID_BASE := android-huawei
+
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+
+WITHOUT_CHECK_API := true
